@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Protokół z wykonania prac</title>
+    <style>
+        @page {
+            size: A4;
+        }
+
+        @media print {
+            header {
+                left: 15mm;
+                top: 0;
+            }
+
+            footer {
+                bottom: 0;
+                position: fixed;
+            }
+
+            thead {
+                display: table-header-group;
+            }
+
+            tfoot {
+                display: table-footer-group;
+            }
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Arial Unicode MS', sans-serif !important;
+            padding: 0 1mm;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .pagebreak {
+            page-break-after: always;
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+
+        h1 {
+            font-size: 18px;
+            padding-bottom: 0;
+            padding-top: 0;
+            text-align: center;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        h2 {
+            color: #00aeef;
+            display: block;
+            font-size: 14px;
+            margin-bottom: 1mm;
+            margin-top: 4mm;
+            position: relative;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            text-align: center;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        div {
+            page-break-inside: avoid;
+        }
+
+        header {
+            margin-top: 0mm;
+        }
+
+        table {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        td {
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 0;
+            vertical-align: bottom;
+        }
+
+        td.w2 {
+            width: 2%;
+        }
+
+        td.w13 {
+            width: 13%;
+        }
+
+        td.w26 {
+            width: 26.5%;
+        }
+
+        td.w30 {
+            width: 30%;
+        }
+
+        td.w32 {
+            width: 32%;
+        }
+
+        td.w49 {
+            width: 49%;
+        }
+
+        td.w70 {
+            width: 70%;
+        }
+
+        .head {
+            margin-bottom: 1mm;
+            position: relative;
+        }
+
+        .logo {
+            left: 15mm;
+            width: 30mm;
+        }
+
+        .block {
+            display: block;
+            margin-top: 1px;
+            width: 100%;
+            page-break-after: avoid;
+        }
+
+        .textField {
+            background: #ededed;
+            font-size: 12px;
+            line-height: 150%;
+            padding: 1mm 2mm;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact !important;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .textFieldTitle {
+            font-size: 9px !important;
+            line-height: 9px;
+            margin-bottom: 1mm;
+            width: 100%;
+        }
+
+        .statement {
+            font-size: 12px;
+            margin-top: 1em;
+            text-align: justify;
+        }
+
+        .info {
+            text-align: center;
+            padding: 5mm 15mm;
+        }
+
+        .infoline__container {
+            width: 100%;
+        }
+
+        .infoline {
+            color: #00aeef;
+            float: left;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            width: auto;
+        }
+
+        .infoline img {
+            width: 16mm;
+        }
+
+        .infoline p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .customerSign {
+            font-size: 12px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .customerSignInfo {
+            border-top: 1px solid black;
+            color: #00aeef;
+            float: left;
+            font-size: 9px;
+            font-weight: bold;
+            margin-top: 2mm;
+            padding-top: 3mm;
+            width: 100%;
+        }
+
+        .contactColumn {
+            margin-right: 10mm;
+        }
+
+        .contactColumn tr {
+            color: #9d9d9d;
+            font-size: 9px;
+        }
+
+        .contactColumn:before {
+            color: #00aeef;
+            content: "—";
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .contactColumn tr span {
+            margin-left: 10mm;
+        }
+
+        .goodPeople img {
+            width: 54mm;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="head">
+        <img src="file:logo.png" class="logo"/>
+    </div>
+</header>
+
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <section class="content">
+                <h1>Protokół z wykonania prac</h1>
+                <div class="block">
+                    <table>
+                        <tr>
+                            <td class="textField w26">
+                                <div class="textFieldTitle">Miejscowość</div>
+                                <div>{{protocol.protocolCity}}</div>
+                            </td>
+                            <td class="w2"></td>
+                            <td class="textField w13">
+                                <div class="textFieldTitle">Data</div>
+                                <div>{{protocol.protocolDate}}</div>
+                            </td>
+                            <td class="w2"></td>
+                            <td class="textField w26">
+                                <div class="textFieldTitle">Numer umowy</div>
+                                <div>{{protocol.agreementNumber}}</div>
+                            </td>
+                            <td class="w2"></td>
+                            <td class="textField w26">
+                                <div class="textFieldTitle">Numer zlecenia</div>
+                                <div>{{protocol.caseNumber}}</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="block">
+                    <h2>Adres świadczenia usług</h2>
+                    <table>
+                        <tr>
+                            <td class="textField w32">
+                                <div class="textFieldTitle">Ulica, numer posesji, numer lokalu</div>
+                                <div>{{protocol.street}}</div>
+                            </td>
+                            <td class="w2"></td>
+                            <td class="textField w32">
+                                <div class="textFieldTitle">Miejscowość</div>
+                                <div>{{protocol.city}}</div>
+                            </td>
+                            <td class="w2"></td>
+                            <td class="textField w32">
+                                <div class="textFieldTitle">Kod pocztowy</div>
+                                <div>{{protocol.postalCode}}</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="block">
+                    <h2>Dane osobowe klienta</h2>
+                    <table>
+                        <tr>
+                            <td class="textField w49">
+                                <div class="textFieldTitle">Imię</div>
+                                <div>{{protocol.customerName}}</div>
+                            </td>
+                            <td class="w2"></td>
+                            <td class="textField w49">
+                                <div class="textFieldTitle">Nazwisko</div>
+                                <div>{{protocol.customerSurname}}</div>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="tableDistance">
+                        <tr>
+                            <td class="textField">
+                                <div class="textFieldTitle">Nazwa firmy lub prowadzonej działalności</div>
+                                <div>{{protocol.companyName}}</div>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="tableDistance">
+                        <tr>
+                            <td class="textField">
+                                <div class="textFieldTitle">Autoryzacja tożsamości</div>
+                                <div>{{protocol.identityAuthorization}}</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="block">
+                    <h2>Zainstalowane usługi</h2>
+                    <table>
+                        <tr>
+                            <td class="textField">
+                                <div class="textFieldTitle">Nazwa pakietu</div>
+                                <div>{{protocol.serviceNamesList}}</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="block">
+                    <h2>Pokwitowanie przekazania sprzętu</h2>
+                    <table>
+                        <tr>
+                            <td class="textField w49">
+                                <div class="textFieldTitle">Model</div>
+                                <div>{{protocol.deviceIssuedModelsList}}</div>
+                            </td>
+                            <td class="w2"></td>
+                            <td class="textField w49">
+                                <div class="textFieldTitle">Nr urządzenia</div>
+                                <div>{{protocol.deviceIssuedNumbersList}}</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="block">
+                    <h2>Pokwitowanie zwrotu sprzętu</h2>
+                    <table>
+                        <tr>
+                            <td class="textField w32">
+                                <div class="textFieldTitle">Model</div>
+                                <div>{{protocol.deviceReturnedModelsList}}</div>
+                            </td>
+                            <td class="w2"></td>
+                            <td class="textField w32">
+                                <div class="textFieldTitle">Nr urządzenia</div>
+                                <div>{{protocol.deviceReturnedNumbersList}}</div>
+                            </td>
+                            <td class="w2"></td>
+                            <td class="textField w32">
+                                <div class="textFieldTitle">Status urządzenia</div>
+                                <div>{{protocol.deviceReturnedStatus}}</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="block">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="statement">
+                                    Akceptuję sposób wykonania prac oraz potwierdzam, iż zostały one zakończone, a
+                                    pracownik
+                                    uporządkował miejsce
+                                    pracy. Strony niniejszym ustalają, że w przypadku utraty sprzętu przez
+                                    klienta, Operatorowi przysługuje prawo
+                                    do naliczenia opłaty odtworzeniowej za utracony sprzęt. Opłata odtworzeniowa
+                                    zostanie obliczona na podstawie wartości
+                                    rynkowej utraconego sprzętu na dzień powzięcia przez Operatora informacji o utracie
+                                    sprzętu z uwzględnieniem zużycia
+                                    w ramach normalnego korzystania ze Sprzętu.
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="info">
+                        <tr>
+                            <td class="w70">
+                                <div class="infoline__container">
+                                    <div class="infoline">
+                                        <img src="file:headphones.png" width="60px" height="60px"/>
+                                        <br></br>
+                                        <p>Infolinia obsługowa: 61 222 22 22</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="w30">
+                                <div class="customerSign">{{protocol.customerSignature}}</div>
+                                <div class="customerSignInfo">Czytelny podpis Klienta</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<footer>
+    <div>
+        <div class="goodPeople">
+            <img src="file:dobrzy_ludzie.png" width="204px" height="22px"/>
+        </div>
+        <div>
+            <table class="contact">
+                <td class="contactColumn">
+                    <tr>INEA sp. z o.o.</tr>
+                    <tr>Wysogotowo, ul. Wierzbowa 84</tr>
+                    <tr>62-081 Przeźmierowo</tr>
+                </td>
+                <td class="contactColumn">
+                    <tr>KRS 0000861001</tr>
+                    <tr>Sąd Rejonowy Poznań-Nowe</tr>
+                    <tr>Miasto i Wilda, VIII Wydział Gospodarczy</tr>
+                </td>
+                <td class="contactColumn">
+                    <tr>NIP: 7812013054 | REGON: 387080789 <span>inea.pl</span></tr>
+                    <tr>Kapitał zakładowy: 11.782.050,00 zł</tr>
+                    <tr>BDO: 000535488</tr>
+                </td>
+            </table>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
